@@ -45,4 +45,23 @@ El editor de código tiene un elemento JSX similar al que creaste en el último 
 
 ## Renderiza elementos HTML al DOM
 
-Hasta ahora, has aprendido que JSX es una herramienta conveniente para escribir HTML legible dentro de  JS. Con React, podemos rederizar este JSX directamente al DOM HTML usando la API de renderizado de React conocida como ReactDOM.
+Hasta ahora, has aprendido que JSX es una herramienta conveniente para escribir HTML legible dentro de JS. Con React, podemos rederizar este JSX directamente al DOM HTML usando la API de renderizado de React conocida como ReactDOM.
+ReactDOM ofrece un método simple para renderizar elementos  React al DOM que se ve así: `ReactDOM.render(componentToRender, targetNode)`, done el primer argumento es el elemento o componente React que deseas renderizar, y el segundo argumento es el nodo DOM al que se quiere renderizar el componente.
+Como era de esperarse, `ReactDOM.render()`debe llamarse después de las declaraciones de los elementos JSX, al igual que hay que declarar las variables antes de usarlas.
+
+Para rendererizar un elemento al DOM, usamos la siguiente sintáxis:
+
+```
+ReactDOM.render(<item to be rendered>, <where to be rendered>);
+```
+```
+ReactDOM.render(JSX, document.getElementById("challenge-node")); 
+```
+## Definir una clase HTML en JSX
+
+Una diferencia clave en JSX es que ya no puedes usar la palabra `class`para definir clases HTML. Esto es debido a que `class` e suna palabra reservada en javascript. En su lugar, JSX utiliza `className`.
+De hecho, la convensión de nomenclatura para todos los atributos HTML y referencias a eventos en JSX se convierte a camelCase. Por ejemplo, un evento de click en JSX en `onClick`, en lugar de `onclick`.
+Del mismo modo, `onchange` se convierte en `onChange`. Si bien se trata de una diferencia sutil, es importante tenerlo en cuenta de ahora en adelante. 
+
+## Etiquetas JSX auto-cerradas
+
