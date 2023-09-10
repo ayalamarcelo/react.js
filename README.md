@@ -65,3 +65,44 @@ Del mismo modo, `onchange` se convierte en `onChange`. Si bien se trata de una d
 
 ## Etiquetas JSX auto-cerradas
 
+Hasta ahora, has visto cómo JSX difiere de HTML de una manera clave con el uso de `className` vs. `class` para definir clases en HTML.
+Otra forma importante en la que JSX difiere de HTML está en la idea de la etiqueta de auto-cierre.
+En HTML, casi todas las etiquetas tienen una etiqueta de apertura y cierre: `<div></div>`;la etiqueta de cierre siempre tiene una barra inclinada antes del nombre de la etiqueta que está cerrando. Sin embargo, hay instancias especiales en HTML llamadas "etiquetas auto-cerradas", o etiquetas que no requieren una etiqueta de apertura y cierre antes de que otra etiqueta pueda comenzar.
+Por ejemplo, la etiqueta de salto de línea puede escribirse como `<br />`, pero nunca debe escribirse como `<br></br>`, ya que no contiene ningún contenido.
+En JSX, las reglas son un poco diferentes. Cualquier elementos JSX se puede escribir con una etiqueta de auto-cierre, y cada elemento debe ser cerrado. La etiqueta de salto de línea, por ejemplo, siempre debe escribirse como `<br />` para ser un JSX válido que puede ser transpilado. Por otra parte, un `<div>` puede escribirse como `<div />` o `<div></div>`. La diferencia es que en la primera versión de sintaxis no hay forma de incluir nada en la `<div />`. Verás en desafíos posteriores que esta sintaxis es útil al rederizar componentes de React.
+
+## Crea un componente funcional sin estado
+
+Los componentes son el núcleo de React. Todo en React es un componente y aquí aprenderás a crear uno.
+Hay dos maneras de crear un componente React. La primera forma es utilizar una función JavaScript. Definir un componente de esta manera crea un *componente funcional sin estado*. El concepto de estado en una solicitud se abordará en retos posteriores. Por ahora, piensa en un componente sin estado como que puede recibir datos y renderizarlos, pero no administra o rastrea los cambios en esos datos. (Cubriremos la segunda manera de crear un componente React en el siguiente desafío.)
+
+Para crear un componente con una función, simplemente escribe una función JS que devuelva ya sea JSX o `null`. Una cosa importante a tener en cuenta es que en React requiere que tu nombre de función comience con una letra mayúscula. Aquí hay un ejemplo de un componente funcional sin estado que asigna una clase HTML en JSX:
+
+```
+const DemoComponent = function() {
+  return (
+    <div className ='customClass' />
+  );
+};
+```
+Después de ser transpilado, el `<div>` tendrá una clase CSS de `customCLass`.
+Debido a que un componente JSX representa HTML, podrías poner varios componentes juntos para crear una página HTML más compleja. Esta es una de las ventajas clave de la arquitectura de componentes que React proporciona. Te permite componener tu interfaz de usuario de muchos componentes separados y aislados. Esto hace más fácil contruir y mantener complejas interfaces de usuario.
+
+## Crea un componente de React
+
+La otra forma de definir un componente React es con la sintaxis de clase de ES6 `class`. En el siguiente ejemplo, `Kitten` hereda de `React. Component:`
+
+```
+class Kitten extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    returnv(
+      <h1>Hi</h1>
+    );
+  }
+}
+```
+Esto crea una clase de ES6 `Kitten` que hereda de la clase `React.Componente`. Así que la clase `Kitten` ahora tiene acceso a muchas características útiles de React, como el estado local y el ciclo de vida de los "Hooks". No te preocupes si aún no estás familiarizado con estos términos, ya que se tratarán con más detalle en los desafíos posteriores. También ten en cuenta que la clase `Kitten` tine un `constructor` definido dentro de ella que llama a `super()`. Utiliza `super()` para llamar al constructor de la clase padre, en este caso `React.Component`. El constructor es un método especial utilizado durante la inicialización de objetos que se crean con la palabra clave `class`. Es una mejor práctica llamar al `constructor` de un componente con `super`, y pasar sus propiedades `props` a ambos. Esto asegura que el componente esté inicializado correctamente. Por ahora, sepan que es estándar que se incluya este código. Pronto verás otros usos para el constructor, así como las `props`.
