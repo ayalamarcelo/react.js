@@ -106,3 +106,27 @@ class Kitten extends React.Component {
 }
 ```
 Esto crea una clase de ES6 `Kitten` que hereda de la clase `React.Componente`. Así que la clase `Kitten` ahora tiene acceso a muchas características útiles de React, como el estado local y el ciclo de vida de los "Hooks". No te preocupes si aún no estás familiarizado con estos términos, ya que se tratarán con más detalle en los desafíos posteriores. También ten en cuenta que la clase `Kitten` tine un `constructor` definido dentro de ella que llama a `super()`. Utiliza `super()` para llamar al constructor de la clase padre, en este caso `React.Component`. El constructor es un método especial utilizado durante la inicialización de objetos que se crean con la palabra clave `class`. Es una mejor práctica llamar al `constructor` de un componente con `super`, y pasar sus propiedades `props` a ambos. Esto asegura que el componente esté inicializado correctamente. Por ahora, sepan que es estándar que se incluya este código. Pronto verás otros usos para el constructor, así como las `props`.
+
+##  Crear un componente con composición
+
+Ahora veremos cómo podemos componer múltiples componentes de React juntos. Imagina que estás construyendo una aplicación y has creado tres componentes:
+un `Navbar`, `Dashboard`, `Footer`.
+
+Para componer estos componentes juntos, se podría crear un componente `App` *parent* que renderiza cada uno de estos tres componentes como *children*. Para renderizar un componente como hijo en un componente React, se incluye el nombre del componente escrito como una etiqueta HTML personalizada en el JSX. Por ejemplo, en el método `render`se puede escribir:
+
+```
+return (
+  <App>
+  <Navbar />
+  <Dashboard />
+  <Footer />
+  </app>
+)
+```
+Cuando React encuentra una etiqueta HTML personalizada que hace referencia a otro componente (un nombre de componente envuelto en `< />` como en este ejemplo), renderiza el marcado de ese componente en la ubicación de la etiqueta. Esto debería ilustrar la relación padre/hijo entre el componente `App` y `Navbar`, `Dashboard`, y `Footer`.
+En el editor de código, hay un componente funcional simple llamado `ChildComponent` y un componente de clase llamado `ParentComponent`. Asegúrate de cerrar la etiqueta `ChildComponent` con una barra diagonal.
+
+**Note:**`ChildComponent` se define con una función de flecha de ES6 porque esta es una práctica muy común cuando se usa React.
+
+## Utiliza React para procesar componentes anidados
+
